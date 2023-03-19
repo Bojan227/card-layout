@@ -3,6 +3,7 @@ import { filterBySource } from "./filterBySource.js";
 import cardData from "./data.json" assert { type: "json" };
 import { darkTheme, defaultTheme } from "./theme.js";
 
+// Selectors
 const loadButton = document.querySelector(".load-btn");
 
 // main layout
@@ -14,8 +15,7 @@ const cardBackgrondColorTextInput = document.getElementById(
   "cardBackgroundColor"
 );
 
-// get all the radio buttons
-const radioButtons = document.querySelectorAll(
+const filterByRadioButtons = document.querySelectorAll(
   'input[type="radio"][name="filterBySource"]'
 );
 
@@ -26,6 +26,7 @@ const themeRadioButtons = document.querySelectorAll(
   'input[type="radio"][name="theme"]'
 );
 
+// Methods
 function updateDisplay(data) {
   if (data.length === 0) {
     const message = document.createElement("h1");
@@ -181,7 +182,7 @@ function checkBackgroundCardColor() {
 }
 
 // Event Listeners
-radioButtons.forEach((btn) =>
+filterByRadioButtons.forEach((btn) =>
   btn.addEventListener("click", () => {
     emptyLayoutContainer();
     updateDisplay(filterBySource(cardData, btn.value));
