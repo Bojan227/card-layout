@@ -1,5 +1,6 @@
 import div from "./components/divComponent.js";
 import img from "./components/imgComponent.js";
+import editCaption from "./editCaption.js";
 import text from "./components/textComponent.js";
 import { formatDate } from "./formatDate.js";
 
@@ -47,9 +48,7 @@ export function card(
 
   const mainImage = img(image, "main-image", "main-img");
 
-  const captionContent = text("p", caption);
-
-  mainSection.append(mainImage, captionContent);
+  mainSection.append(mainImage, editCaption(caption));
 
   //   likes section
   const likesSection = div("likes-section");
