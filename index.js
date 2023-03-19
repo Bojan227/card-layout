@@ -162,6 +162,24 @@ function loadMoreCards() {
   }
 }
 
+// guard method that prevent the color of a card and the caption
+//  on that card from being the same color.
+function checkBackgroundCardColor() {
+  if (
+    cardBackgrondColorTextInput.value === "white" ||
+    cardBackgrondColorTextInput.value === "#ffffff"
+  ) {
+    changeTheme("lightTheme");
+    return;
+  } else if (
+    cardBackgrondColorTextInput.value === "black" ||
+    cardBackgrondColorTextInput.value === "#000000"
+  ) {
+    changeTheme("darkTheme");
+    return;
+  }
+}
+
 // Event Listeners
 radioButtons.forEach((btn) =>
   btn.addEventListener("click", () => {
@@ -200,28 +218,17 @@ themeRadioButtons.forEach((btn) =>
 spaceBetweenTextInput.addEventListener("input", () =>
   addSpaceBetweenCards(spaceBetweenTextInput.value)
 );
+
 // input event
 cardBackgrondColorTextInput.addEventListener("input", () => {
-  if (
-    cardBackgrondColorTextInput.value === "white" ||
-    cardBackgrondColorTextInput.value === "#ffffff"
-  ) {
-    changeTheme("lightTheme");
-  } else {
-    changeCardsBgColor(cardBackgrondColorTextInput.value);
-  }
+  checkBackgroundCardColor();
+  changeCardsBgColor(cardBackgrondColorTextInput.value);
 });
 
 // focusin event
 cardBackgrondColorTextInput.addEventListener("focusin", () => {
-  if (
-    cardBackgrondColorTextInput.value === "white" ||
-    cardBackgrondColorTextInput.value === "#ffffff"
-  ) {
-    changeTheme("lightTheme");
-  } else {
-    changeCardsBgColor(cardBackgrondColorTextInput.value);
-  }
+  checkBackgroundCardColor();
+  changeCardsBgColor(cardBackgrondColorTextInput.value);
 });
 
 loadButton.addEventListener("click", () => {
