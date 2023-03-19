@@ -35,33 +35,8 @@ function updateDisplay(data) {
     layoutContainer.appendChild(message);
     removeLoadButton();
   } else {
-    data.map(
-      (
-        {
-          image,
-          caption,
-          source_type,
-          name,
-          source_link,
-          date,
-          likes,
-          profile_image,
-        },
-        index
-      ) =>
-        layoutContainer.appendChild(
-          card(
-            profile_image,
-            name,
-            date,
-            source_type,
-            image,
-            caption,
-            likes,
-            index,
-            source_link
-          )
-        )
+    data.map((cardData, index) =>
+      layoutContainer.appendChild(card(cardData, index))
     );
     loadButton.style.color = "#FFFFFF";
   }

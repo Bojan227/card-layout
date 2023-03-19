@@ -4,17 +4,18 @@ import editCaption from "./editCaption.js";
 import genericComponent from "./components/genericComponent.js";
 import { formatDate } from "./formatDate.js";
 
-export function card(
-  profile_image,
-  name,
-  date,
-  source_type,
-  image,
-  caption,
-  likes,
-  index,
-  source_link
-) {
+export function card(cardData, index) {
+  const {
+    profile_image,
+    name,
+    date,
+    source_type,
+    image,
+    caption,
+    likes,
+    source_link,
+  } = cardData;
+
   const cardContainer = div("card-container", "#ffffff", index);
 
   // header card
