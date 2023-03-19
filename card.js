@@ -1,7 +1,7 @@
 import div from "./components/divComponent.js";
 import img from "./components/imgComponent.js";
 import editCaption from "./editCaption.js";
-import text from "./components/textComponent.js";
+import genericComponent from "./components/genericComponent.js";
 import { formatDate } from "./formatDate.js";
 
 export function card(
@@ -25,8 +25,8 @@ export function card(
   // user info
   const userContainer = div("user-info");
 
-  const userName = text("h4", name);
-  const dateContent = text("p", formatDate(date));
+  const userName = genericComponent("h4", name);
+  const dateContent = genericComponent("p", formatDate(date));
 
   userContainer.append(userName, dateContent);
 
@@ -57,7 +57,7 @@ export function card(
   const svgContainer = div("heart-svg");
   svgContainer.setAttribute("liked", false);
 
-  const numberOfLikes = text("p", likes);
+  const numberOfLikes = genericComponent("p", likes);
 
   likesSection.append(svgContainer, numberOfLikes);
   cardContainer.append(header, mainSection, likesSection);
