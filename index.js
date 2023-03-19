@@ -68,16 +68,16 @@ function changeLikeStatus() {
 
   heartIcons.forEach((icon) =>
     icon.addEventListener("click", () => {
-      const cardIndex = icon.parentElement.parentElement.id;
-
       if (icon.getAttribute("liked") === "true") {
         icon.children[0].style.fill = "#FFFFFF";
         icon.setAttribute("liked", false);
-        icon.nextSibling.textContent = cardData[cardIndex].likes;
+        icon.nextSibling.textContent =
+          parseInt(icon.nextSibling.textContent) - 1;
       } else {
         icon.children[0].style.fill = "#FF0000";
         icon.setAttribute("liked", true);
-        icon.nextSibling.textContent = parseInt(cardData[cardIndex].likes) + 1;
+        icon.nextSibling.textContent =
+          parseInt(icon.nextSibling.textContent) + 1;
       }
     })
   );
