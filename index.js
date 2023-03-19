@@ -175,7 +175,7 @@ dropdown.addEventListener("change", function () {
   // Check if the media query is true
 
   if (dropdown.value === "dynamic") {
-    layoutContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(350px, 1fr))`;
+    layoutContainer.style.gridTemplateColumns = `repeat(auto-fill, minmax(325px, 1fr))`;
   } else if (mediaQuery.matches) {
     if (dropdown.value >= 4) {
       layoutContainer.style.gridTemplateColumns = `repeat(${dropdown.value},310px)`;
