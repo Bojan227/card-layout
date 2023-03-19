@@ -54,7 +54,7 @@ export function card(
   const likesSection = div("likes-section");
 
   // svg
-  const svgContainer = div("svg");
+  const svgContainer = div("heart-svg");
   svgContainer.setAttribute("liked", false);
 
   const numberOfLikes = text("p", likes);
